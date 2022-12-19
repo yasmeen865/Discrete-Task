@@ -4,36 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task_1
+namespace task_2
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
-            int n1, n2;
-
-            Console.WriteLine("enter frist number");
-            n1 = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("enter second number");
-            n2 = int.Parse(Console.ReadLine());
-
-            bool result = true;
-
-            for (int i = n1; i <= n2; i++)
+       
+        
+            public static int Factors(int n2)
             {
-                for (int j = 2; j <= Math.Sqrt(i); j++)
+                int sum = 0;
+                for (int i = 1; i < n2; i++)
                 {
-                    if (i % j == 0)
-                        result = false;
+                    if (n2 % i == 0)
+                    {
+                        sum = sum + i;
+                    }
                 }
 
-                if (result == true && i != 1)
-                {
-                    Console.WriteLine(i);
-                }
-                result = true;
+                return sum;
             }
-        }
+
+
+            public static void Main(string[] args)
+            {
+                int n2, n1;
+
+                Console.WriteLine("enter frist number");
+                n1 = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("enter provide number");
+                n2 = int.Parse(Console.ReadLine());
+
+                for (int i = n1; i <= n2; i++)
+                {
+                    int result = Factors(i);
+                    if (result == i)
+                    {
+                        Console.WriteLine(i);
+                    }
+                }
+            }
     }
 }
